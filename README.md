@@ -3,3 +3,12 @@
 # has-key
 
 Does the object have a key?
+
+## Usage
+```
+import hasKey from '@yavisht/has-key'
+
+hasKey({ theKey: 'test' }, 'theKey')
+
+// returns true
+```
