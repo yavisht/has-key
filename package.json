@@ -1,0 +1,22 @@
+{
+  "name": "@yavisht/has-key",
+  "version": "0.0.0-development",
+  "description": "Returns true if the object has a key",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/yavisht/has-key.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release"
+  },
+  "author": "Yavisht Katgara",
+  "license": "MIT",
+  "devDependencies": {
+    "semantic-release": "^17.1.1"
+  }
+}
