@@ -1,0 +1,38 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Publish to Npm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
+
+      - name: Prep artifact for github package publishing
+        run: |
+        npm install -g json
+        json -I -f package.json -e 'this.publishConfig.registry="https://npm.pkg.github.com/"'
+        touch release.txt | echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+        cat release.txt
+
+      - name: Publish to GHP
+        uses: actions/setup-node@v1
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+        run: ls
+        env:
+          NPM_TOKEN: ${{ secrets.GH_TOKEN }}
