@@ -1,4 +1,4 @@
-export default (obj, key) => {
+module.exports = function hasKey(obj, key) {
   if (Object.keys(obj).includes(key)) {
     return true;
   } else {
