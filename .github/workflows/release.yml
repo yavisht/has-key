@@ -24,15 +24,15 @@ jobs:
 
       - name: Prep artifact for github package publishing
         run: |
-        npm install -g json
-        json -I -f package.json -e 'this.publishConfig.registry="https://npm.pkg.github.com/"'
-        touch release.txt | echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-        cat release.txt
+          npm install -g json
+          json -I -f package.json -e 'this.publishConfig.registry="https://npm.pkg.github.com/"'
+          touch release.txt | echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+          cat release.txt
 
       - name: Publish to GHP
         uses: actions/setup-node@v1
         with:
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: "https://npm.pkg.github.com"
         run: ls
         env:
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
