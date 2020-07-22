@@ -9,7 +9,7 @@ A simple util that will return true or false if the specified key is present in 
 	// NPM
 	npm i @yavisht/has-key 
 
-	//Yarn
+	// Yarn
 	yarn add @yavisht/has-key
 
 
