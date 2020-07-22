@@ -41,7 +41,6 @@ jobs:
           json -I -f package.json -e 'this.publishConfig.registry="https://npm.pkg.github.com/"'
 
       - name: Publish to GHP
-        if: startsWith(github.ref, 'refs/tags/')
         env:
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
