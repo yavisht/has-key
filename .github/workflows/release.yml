@@ -29,10 +29,12 @@ jobs:
           touch release.txt | echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
           cat release.txt
 
-      - name: Publish to GHP
+      - name: Set Node env for GHP
         uses: actions/setup-node@v1
         with:
           registry-url: "https://npm.pkg.github.com"
-        run: ls
+
+      - name: Publish
         env:
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: ls
