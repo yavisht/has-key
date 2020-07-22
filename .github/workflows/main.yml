@@ -1,15 +1,21 @@
-name: Publish to NPM
-on: push
+name: Publish to npm
+on:
+  push:
+    branches:
+      - master
 jobs:
-  test:
-    runs-on: ubuntu-16.04
+  release:
+    name: Release
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
         with:
-          node-version: "12"
+          node-version: 12
       - name: Release
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          run: npx semantic-release
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
