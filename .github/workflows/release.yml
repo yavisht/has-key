@@ -26,15 +26,15 @@ jobs:
         run: |
           npm install -g json
           json -I -f package.json -e 'this.publishConfig.registry="https://npm.pkg.github.com/"'
-          touch release.txt | echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-          cat release.txt
+          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//} > release.txt
 
       - name: Set Node env for GHP
         uses: actions/setup-node@v1
         with:
+          node-version: 12
           registry-url: "https://npm.pkg.github.com"
 
       - name: Publish
         env:
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: ls
+        run: cat release.txt
