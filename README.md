@@ -4,10 +4,22 @@
 
 A simple util that will return true or false if the specified key is present in the object supplied.
 
-## Usage
+## Installation
 
+	// NPM
+	npm i @yavisht/has-key 
+
+	//Yarn
+	yarn add @yavisht/has-key
+
+
+## Usage
+	// require example
 	const hasKey = require('@yavisht/has-key')
 	
+	// import example 
+	import hasKey from '@yavisht/has-key'
+
 	// returns true
 	console.log(hasKey({foo:'bar'}, 'foo'))
 	
