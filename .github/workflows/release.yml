@@ -26,7 +26,6 @@ jobs:
         run: |
           npm install -g json
           json -I -f package.json -e 'this.publishConfig.registry="https://npm.pkg.github.com/"'
-          echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//} > release.txt
 
       - name: Set Node env for GHP
         uses: actions/setup-node@v1
@@ -37,4 +36,5 @@ jobs:
       - name: Publish
         env:
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: git describe --tags > release.txt
         run: cat release.txt
