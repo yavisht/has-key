@@ -1,4 +1,4 @@
-name: CI
+name: Publish to NPM
 on: push
 jobs:
   test:
@@ -8,9 +8,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "12"
-      # - run: npm
-      # - run: npm test
       - name: Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           run: npx semantic-release
