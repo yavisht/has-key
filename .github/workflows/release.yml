@@ -36,5 +36,4 @@ jobs:
       - name: Publish
         env:
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: git describe --tags > release.txt
-        run: cat release.txt
+        run: git describe --tags > release.txt && cat release.txt
