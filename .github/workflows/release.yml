@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 12
 
-      - name: Publish to Npm
+      - name: Publish to NPM
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -33,7 +33,7 @@ jobs:
           node-version: 12
           registry-url: "https://npm.pkg.github.com"
 
-      - name: Publish
+      - name: Publish to GHP
         env:
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
         run: git describe --tags > release.txt && cat release.txt
