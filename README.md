@@ -4,6 +4,15 @@
 
 A simple util that will return true or false if the specified key is present in the object supplied.
 
+## Installation
+
+	// For npm
+	npm i @yavisht/has-key 
+
+	// For yarn
+	yarn add @yavisht/has-key
+
+
 ## Usage
 
 	const hasKey = require('@yavisht/has-key')
