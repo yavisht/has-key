@@ -11,12 +11,8 @@
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "semantic-release": "semantic-release"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yavisht Katgara",
-  "license": "MIT",
-  "devDependencies": {
-    "semantic-release": "^17.1.1"
-  }
+  "license": "MIT"
 }
