@@ -39,11 +39,11 @@ jobs:
         run: |
           npm install -g json
           json -I -f package.json -e 'this.publishConfig.registry="https://npm.pkg.github.com/"'
+          TAG="$(git describe --tags)"
+          TAG=${TAG:1}
+          json -I -f package.json -e 'this.version="'$TAG'"'
 
       - name: Publish to GHP
         env:
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          REPOTAG="$(git describe --tags)"
-          json -I -f package.json -e 'this.version="${REPOTAG:1}"'
-          cat package.json
+        run: cat package.json
