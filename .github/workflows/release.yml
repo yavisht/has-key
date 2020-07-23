@@ -38,7 +38,8 @@ jobs:
       - name: Prep artifact for github package publishing
         run: |
           npm install -g json
-          json -I -f package.json -e 'this.publishConfig.registry="https://npm.pkg.github.com/"'
+          json -I -f package.json -e 'this.name="has-key"'
+          json -I -f package.json -e 'this.publishConfig.registry="https://npm.pkg.github.com/@yavisht/"'
           TAG="$(git describe --tags)"
           TAG=${TAG:1}
           json -I -f package.json -e 'this.version="'$TAG'"'
