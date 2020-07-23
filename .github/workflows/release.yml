@@ -44,5 +44,6 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          json -I -f package.json -e 'this.version="${{ github.ref }}"'
+          REPOTAG="$(git describe --tags)"
+          json -I -f package.json -e 'this.version="${REPOTAG:1}"'
           cat package.json
