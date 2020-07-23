@@ -46,4 +46,4 @@ jobs:
       - name: Publish to GHP
         env:
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: cat package.json
+        run: npm publish
