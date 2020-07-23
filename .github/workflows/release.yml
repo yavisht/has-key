@@ -45,5 +45,6 @@ jobs:
 
       - name: Publish to GHP
         env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm publish
